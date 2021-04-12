@@ -1,0 +1,19 @@
+{
+  "name": "micros-gateway-boilerplate",
+  "version": "0.0.1",
+  "description": "API gateway for micros",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hexsis/micros-gateway-boilerplate.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Hexsis/micros-gateway-boilerplate/issues"
+  },
+  "homepage": "https://github.com/Hexsis/micros-gateway-boilerplate#readme"
+}
