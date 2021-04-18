@@ -17,9 +17,10 @@ const server = new ApolloServer({
         const user = { isAuthenticated: true, id: '123', role: 'customer' }
         return { user };
     },
-    persistedQueries: false, // TODO: Add
+    persistedQueries: false,
     uploads: false,
     cors: false,
+    debug: false,
     // logger
 });
 
