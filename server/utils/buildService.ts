@@ -1,6 +1,7 @@
-import { RemoteGraphQLDataSource } from '@apollo/gateway';
+import { LocalGraphQLDataSource, RemoteGraphQLDataSource } from '@apollo/gateway';
+import { getFederatedSchema } from './getFederatedSchema';
 
-export class CustomDataSource extends RemoteGraphQLDataSource {
+export class CustomRemoteDataSource extends RemoteGraphQLDataSource {
   willSendRequest(opts: { request: any, context: any }): void {
     const { request, context } = opts;
     const user = context.user;
@@ -20,5 +21,11 @@ export class CustomDataSource extends RemoteGraphQLDataSource {
 
     // Return the response, even when unchanged.
     return response;
+  }
+}
+
+export class CustomLocalDataSource extends LocalGraphQLDataSource {
+  constructor (serviceName: string) {
+    super(getFederatedSchema(serviceName));
   }
 }

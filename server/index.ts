@@ -1,12 +1,15 @@
 import { ApolloServer } from 'apollo-server';
 import { ApolloGateway } from '@apollo/gateway';
-import { serviceList } from './config/serviceDiscovery';
-import { CustomDataSource } from './utils/buildService';
+import { serviceList, GATEWAY_LOCAL_SERVICE } from './config/serviceDiscovery';
+import { CustomRemoteDataSource, CustomLocalDataSource } from './utils/buildService';
 
 const gateway = new ApolloGateway({
     serviceList,
     buildService({ url }) {
-        return new CustomDataSource({ url });
+        if (url?.includes(GATEWAY_LOCAL_SERVICE)) {
+            return new CustomLocalDataSource(url.replace(GATEWAY_LOCAL_SERVICE, ''));
+        }
+        return new CustomRemoteDataSource({ url });
     }
 });
 
