@@ -1,0 +1,11 @@
+schema: 'server/services/**/schema.gql'
+generates:
+  ./server/services/types.ts:
+    plugins:
+      - typescript
+      - typescript-resolvers
+    config:
+      useIndexSignature: true
+      noSchemaStitching: false
+      federation: true
+      wrapFieldDefinitions: true

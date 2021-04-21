@@ -1,8 +1,3 @@
-enum PolicyEnum {
-    OTP
-    EMAIL_PASSWORD
-}
-
 input OtpAuthInput {
     phone: String!
     otp: String!
@@ -14,8 +9,6 @@ input EmailPasswordAuthInput {
     password: String!
 }
 
-union AuthInput = OtpAuthInput | EmailPasswordAuthInput
-
 type Query {
     sendOtp (
         phone: String!
@@ -23,12 +16,15 @@ type Query {
 }
 
 type Mutation {
-    login (
-        policy: PolicyEnum!
-        auth: AuthInput!
+    logInOtp (
+        auth: OtpAuthInput
     ): String
 
-    logout: String
+    logInEmail (
+        auth: EmailPasswordAuthInput
+    ): String
+
+    logOut: String
 }
 
 schema {
