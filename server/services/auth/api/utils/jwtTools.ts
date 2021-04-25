@@ -6,7 +6,7 @@ const generateJwt = ({
     role
 }: TGenerateJwtPayload): string => ''
 
-const extractJwt = (opts: ExpressContext): TExtractedJwt => ({ isAuthenticated: true, id: '123', role: 'customer' })
+const extractJwt = (opts: ExpressContext): TExtractedJwt => ({ isAuthenticated: true, id: '123', roles: ['customer'] })
 
 export {
     generateJwt,

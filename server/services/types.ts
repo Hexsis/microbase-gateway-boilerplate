@@ -180,7 +180,8 @@ export type CacheControlDirectiveArgs = {   maxAge?: Maybe<Scalars['Int']>;
 
 export type CacheControlDirectiveResolver<Result, Parent, ContextType = any, Args = CacheControlDirectiveArgs> = DirectiveResolverFn<Result, Parent, ContextType, Args>;
 
-export type HasRoleDirectiveArgs = {   oneOf?: Maybe<Array<Maybe<Scalars['String']>>>; };
+export type HasRoleDirectiveArgs = {   anyOf?: Maybe<Array<Maybe<Scalars['String']>>>;
+  allOf?: Maybe<Array<Maybe<Scalars['String']>>>; };
 
 export type HasRoleDirectiveResolver<Result, Parent, ContextType = any, Args = HasRoleDirectiveArgs> = DirectiveResolverFn<Result, Parent, ContextType, Args>;
 
